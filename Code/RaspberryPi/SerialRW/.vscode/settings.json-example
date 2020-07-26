@@ -1,0 +1,8 @@
+// Actual settings file should be named "settings.json"
+{
+    "wifi.Ssid": "yourSSID",
+    "wifi.Psk": "yourPSK",
+    "rpi.Name": "yourPiName",
+    "rpi.StaticIpAddress": "",   // static ip address e.g. "192.168.1.200" or empty for dynamic ip
+    "exe.SerialRWProject": "SerialRW",
+}

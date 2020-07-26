@@ -1,0 +1,23 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build SerialRW",
+            "type": "shell",
+            "command": "dotnet",
+            "args": [ "build", "./${config:exe.SerialRWProject}.csproj",
+                      "/property:GenerateFullPaths=true", "/consoleloggerparameters:NoSummary" ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "publish SerialRW",
+            "type": "shell",
+            "command": "./Scripts/publish.sh",
+            "args": [ "${config:exe.SerialRWProject}", "${config:rpi.Name}" ],
+            "dependsOn": "build SerialRW",
+            "problemMatcher": []
+        },
+    ],
+}

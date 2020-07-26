@@ -1,0 +1,38 @@
+{
+    // Use IntelliSense to find out which attributes exist for C# debugging
+    // Use hover for the description of the existing attributes
+    // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
+    "version": "0.2.0",
+    "configurations": [
+         {
+             "name": "SerialRW (remote)",
+             "type": "coreclr",
+             "request": "launch",
+             "preLaunchTask": "publish SerialRW",
+             "program": "/usr/bin/dotnet/dotnet",
+             "args": ["${config:exe.SerialRWProject}.dll"],
+             "cwd": "~/RemoteDebug/${config:exe.SerialRWProject}",
+             "stopAtEntry": false,
+             "console": "internalConsole",
+             "pipeTransport": {
+                 "pipeCwd": "${workspaceFolder}",
+                 "pipeProgram": "ssh.exe",
+                 "pipeArgs": [
+                     "pi@${config:rpi.Name}"
+                 ],
+                 "debuggerPath": "/usr/bin/vsdbg/vsdbg"
+             }
+         },
+         {
+             "name": "SerialRW (local)",
+             "type": "coreclr",
+             "request": "launch",
+             "preLaunchTask": "build SerialRW",
+             "program": "${workspaceFolder}/bin/Debug/netcoreapp3.1/${config:exe.SerialRWProject}.dll",
+             "args": [],
+             "cwd": "${workspaceFolder}",
+             "console": "internalConsole",
+             "stopAtEntry": false
+         },
+    ]
+ }
