@@ -40,7 +40,6 @@
 #define MAX_PLAINTEXT_SIZE  (MAX_MSG_LEN + 1)
 #define MAX_CIPHERDATA_SIZE (MAX_MSG_LEN + CIPHER_MSG_BYTES)
 #define MAX_BASE64TEXT_SIZE (BASE64_MULTIPLIER(MAX_CIPHERDATA_SIZE) + 1)
-//#define MAX_BASE64TEXT_SIZE (MAX_CIPHERDATA_SIZE * 3 + 1)
 
 OneWire ds18b20_OneWire(DS18B20_ONE_WIRE_BUS);
 DallasTemperature ds18b20(&ds18b20_OneWire);
@@ -90,7 +89,6 @@ void loop()
     GetTempLightData(plainText);
     int cipherLen = EncryptPlainText(cipherData, plainText, strlen(plainText));
     Base64.encode(base64Text, cipherData, cipherLen);
-    //BytesToString(base64Text, cipherData, cipherLen);
     DebugSerialPrintln(plainText);
     IncrementIV();
     HC12.println(base64Text);

@@ -21,7 +21,8 @@ long readVcc()
   while (bit_is_set(ADCSRA,ADSC));
   result = ADCL;
   result |= ADCH<<8;
-  result = 112640L / result; // Back-calculate AVcc in 10s of mV, e.g. 5.2V = 520
+  //result = 112640L / result; // Back-calculate AVcc in 10s of mV, e.g. 5.2V = 520
+  result = 117400L / result; // Back-calculate AVcc in 10s of mV, e.g. 5.2V = 520
   return result;
 }
 

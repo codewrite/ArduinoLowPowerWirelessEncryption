@@ -38,12 +38,12 @@ namespace SerialRW
         cipherPoly1305 = new ChaCha20Poly1305(key);
     }
 
-    public (string plainText, byte[] shortPoly1305) DecodeString(string b64data)
+    public (string plainText, byte[] shortPoly1305) DecodeString(string b64str)
     {
         var data = new byte[0];
         try
         {
-            data = Convert.FromBase64String(b64data);
+            data = Convert.FromBase64String(b64str);
         }
         catch (FormatException)
         {

@@ -59,6 +59,7 @@ void IncrementIV()
   }
 }
 
+//-----------------------------------------------------------------------------------------------------------------------
 // This is not used. It is left here in case it is needed in the future.
 // Normally we wouldn't leave unused code in, but this gives a good idea of how to decrypt messages
 // Note this is based on full ChaCha20-Poly1305, not the cut down (4 byte IV, 4 byte signature) that we are using to encrypt
