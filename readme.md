@@ -4,7 +4,7 @@ This allows us to communicate between an Arduino Pro Mini and a Raspberry Pi.
 
 ## Arduino Schematic
 
-[!Arduino Schematic](Schematics/ArduinoProMiniSchematic.png)
+![Arduino Schematic](Schematics/ArduinoProMiniSchematic.png)
 
 ## Proof of Concept
 
